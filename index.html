@@ -140,24 +140,31 @@
     .cl-script { font-family:var(--ff-script); font-size:clamp(2rem,7vw,3rem); color:var(--rose-bright); text-shadow:0 0 30px var(--rose-glow); display:block; margin-bottom:.7rem; }
     .cl-text { font-family:var(--ff-display); font-style:italic; font-size:.98rem; font-weight:300; color:var(--cream-mid); letter-spacing:.03em; line-height:1.8; }
 
-    /* ── FLORES + CORAZÓN 3D TRANSPARENTE (cristalino) ── */
+    /* ── FLORES + CORAZÓN 3D TRANSPARENTE CON TEXTO CENTRADO PERFECTAMENTE ── */
     #flores-screen {
-      display:none; min-height:100vh; width:100%;
-      position:fixed; inset:0; z-index:200;
-      background:#0b0b0f;
-      flex-direction:column;
-      overflow:hidden;
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: #0b0b0f;
+      overflow: hidden;
     }
-    #flores-screen.on { display:flex; }
+    #flores-screen.on {
+      display: block;
+    }
 
-    #flores-canvas { position:absolute; inset:0; z-index:1; }
+    #flores-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
 
-    /* Contenedor para el corazón 3D transparente (cristal) */
+    /* Contenedor para el corazón 3D transparente */
     .heart-3d-overlay {
       position: absolute;
       inset: 0;
       z-index: 2;
-      pointer-events: none; /* Para no bloquear el botón volver */
+      pointer-events: none;
     }
     .heart-3d-container {
       width: 100%;
@@ -165,42 +172,74 @@
       position: relative;
     }
 
+    /* CONTENIDO DE TEXTO CENTRADO PERFECTAMENTE */
     .flores-content {
-      position:relative; z-index:10;
-      text-align:center; padding:2rem;
-      animation:fdU 1.2s ease 1.5s both;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      text-align: center;
+      padding: 2rem;
       background: transparent;
       pointer-events: none;
+      width: 90%;
+      max-width: 600px;
+      margin: 0;
+      animation: fdU 1.2s ease 1.5s both;
     }
     .flores-title {
-      font-family:var(--ff-script);
-      font-size:clamp(2.5rem,10vw,5rem);
-      color:var(--rose-bright);
-      text-shadow:0 0 60px rgba(232,80,122,.5);
-      display:block; margin-bottom:.5rem;
+      font-family: var(--ff-script);
+      font-size: clamp(2.5rem, 10vw, 5rem);
+      color: var(--rose-bright);
+      text-shadow: 0 0 60px rgba(232,80,122,.5);
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .flores-sub {
-      font-family:var(--ff-display); font-style:italic;
-      font-size:clamp(1rem,3vw,1.3rem);
-      color:var(--cream-mid); letter-spacing:.08em;
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: var(--cream-mid);
+      letter-spacing: .08em;
     }
 
     .flores-back {
-      position:absolute; top:1.2rem; left:1.2rem; z-index:20;
-      display:flex; align-items:center; gap:8px;
-      padding:.48rem 1.1rem;
-      border:1px solid rgba(232,80,122,.30);
-      border-radius:40px; color:var(--rose);
-      font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
-      cursor:pointer; background:rgba(0,0,0,0.5);
+      position: absolute;
+      top: 1.2rem;
+      left: 1.2rem;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: .48rem 1.1rem;
+      border: 1px solid rgba(232,80,122,.30);
+      border-radius: 40px;
+      color: var(--rose);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: rgba(0,0,0,0.5);
       backdrop-filter: blur(4px);
-      font-family:inherit;
-      transition:background .18s,border-color .18s,transform .3s cubic-bezier(.34,1.56,.64,1);
+      font-family: inherit;
+      transition: background .18s, border-color .18s, transform .3s cubic-bezier(.34,1.56,.64,1);
       pointer-events: auto;
     }
-    .flores-back:hover { background:rgba(232,80,122,.30); border-color:var(--rose); transform:translateX(-5px); }
+    .flores-back:hover {
+      background: rgba(232,80,122,.30);
+      border-color: var(--rose);
+      transform: translateX(-5px);
+    }
 
-    @media(max-width:480px){ .hero-box { padding:1.8rem 1.3rem; } }
+    @media(max-width:480px){ 
+      .hero-box { padding:1.8rem 1.3rem; }
+      .flores-content {
+        width: 95%;
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -222,9 +261,8 @@
     </div>
     <p class="wsub">Hay cosas que no se dicen fácil.<br/>Hoy decidí decirlas.</p>
     <div class="nav-wrap">
-      <!-- BOTÓN PARA TI: ahora incluye flores + corazón 3D transparente (cristal) -->
       <button class="nc" onclick="open_flores_with_heart()">
-        <div class="nc-icon"><span>II</span></div>
+        <div class="nc-icon"><span>❤️</span></div>
         <div class="nc-txt">
           <span class="nc-title">Para ti</span>
           <span class="nc-desc">Algo que mereces ver hoy</span>
@@ -252,11 +290,10 @@
   <main class="cm" id="cm"></main>
 </section>
 
-<!-- FLORES + CORAZÓN 3D CRISTALINO (transparente) -->
+<!-- FLORES + CORAZÓN 3D CRISTALINO (transparente) con texto centrado -->
 <div id="flores-screen">
   <button class="flores-back" onclick="close_flores()">← Volver</button>
   <canvas id="flores-canvas"></canvas>
-  <!-- Contenedor para el corazón 3D transparente cristalino -->
   <div class="heart-3d-overlay" id="heart-3d-overlay">
     <div id="transparent-heart-container" class="heart-3d-container"></div>
   </div>
@@ -318,19 +355,19 @@ function go_back(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* ── FLORES CON CORAZÓN 3D CRISTALINO (TRANSPARENTE) ── */
+/* ── FLORES CON CORAZÓN 3D CRISTALINO ── */
 let floresRaf = null;
 let floresStarted = false;
 let transparentHeart3D = null;
 
 function open_flores_with_heart(){
-  document.getElementById('flores-screen').classList.add('on');
+  const screen = document.getElementById('flores-screen');
+  screen.classList.add('on');
   document.body.style.overflow = 'hidden';
   if(!floresStarted){ 
     init_flores(); 
     floresStarted = true; 
   }
-  // Iniciar corazón 3D cristalino transparente si no existe
   if(!transparentHeart3D){
     initCrystalHeart3D();
   } else {
@@ -530,15 +567,15 @@ async function initCrystalHeart3D() {
         container.innerHTML = '';
         
         const scene = new THREE.Scene();
-        scene.background = null; // totalmente transparente
+        scene.background = null;
         scene.fog = null;
         
         const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
         camera.position.set(0, 0, 4.5);
         
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // alpha true = fondo transparente
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setClearColor(0x000000, 0); // completamente transparente
+        renderer.setClearColor(0x000000, 0);
         renderer.shadowMap.enabled = false;
         container.appendChild(renderer.domElement);
         
@@ -550,7 +587,6 @@ async function initCrystalHeart3D() {
         controls.target.set(0, 0.2, 0);
         controls.update();
         
-        // Luces suaves para que el corazón cristalino se vea pero sin opacidad
         const ambientLight = new THREE.AmbientLight(0x332233);
         scene.add(ambientLight);
         const mainLight = new THREE.DirectionalLight(0xffaacc, 0.8);
@@ -560,7 +596,6 @@ async function initCrystalHeart3D() {
         backLight.position.set(-1, 1, -2);
         scene.add(backLight);
         
-        // Corazón con material cristalino (alta transparencia, reflectivo)
         const heartShape = new THREE.Shape();
         const scale = 0.045;
         const points = [];
@@ -579,7 +614,6 @@ async function initCrystalHeart3D() {
         heartGeometry.translate(-(box.min.x+box.max.x)/2, -(box.min.y+box.max.y)/2, -(box.min.z+box.max.z)/2);
         heartGeometry.rotateX(-0.1);
         
-        // Material cristalino: transparente, reflectivo, con brillo sutil pero sin color opaco
         const heartMaterial = new THREE.MeshStandardMaterial({
           color: 0xffaacc,
           emissive: 0x331122,
@@ -587,7 +621,7 @@ async function initCrystalHeart3D() {
           roughness: 0.25,
           metalness: 0.85,
           transparent: true,
-          opacity: 0.45,        // semi transparente pero se ve cristal
+          opacity: 0.45,
           side: THREE.DoubleSide
         });
         const heartMesh = new THREE.Mesh(heartGeometry, heartMaterial);
@@ -595,13 +629,11 @@ async function initCrystalHeart3D() {
         heartMesh.position.y = -0.1;
         scene.add(heartMesh);
         
-        // Borde dorado sutil muy delicado
         const edgesGeo = new THREE.EdgesGeometry(heartGeometry);
         const edgesMat = new THREE.LineBasicMaterial({ color: 0xffaacc, transparent: true, opacity: 0.6 });
         const wireframe = new THREE.LineSegments(edgesGeo, edgesMat);
         heartMesh.add(wireframe);
         
-        // Partículas cristalinas alrededor (muy sutiles)
         const particleCount = 600;
         const particleGeo = new THREE.BufferGeometry();
         const positionsArr = new Float32Array(particleCount * 3);
