@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feliz Cumpleaños 🌹</title>
+  <title>Feliz Cumpleaños, Alison 🌹</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -204,19 +204,19 @@
     </div>
     <p class="wsub">Hay cosas que no se dicen fácil.<br/>Hoy decidí decirlas.</p>
     <div class="nav-wrap">
-      <button class="nc" onclick="open_flores()">
-        <div class="nc-icon"><span>❤️</span></div>
+      <button class="nc" onclick="open_sec('no-dije')">
+        <div class="nc-icon"><span>I</span></div>
         <div class="nc-txt">
-          <span class="nc-title">Para ti</span>
-          <span class="nc-desc">Algo que mereces ver hoy</span>
+          <span class="nc-title">Lo que nunca te dije</span>
+          <span class="nc-desc">Las palabras que se quedaron guardadas</span>
         </div>
         <span class="nc-arr">→</span>
       </button>
-      <button class="nc" onclick="open_sec('deseos')">
-        <div class="nc-icon"><span>III</span></div>
+      <button class="nc" onclick="open_flores()">
+        <div class="nc-icon"><span>II</span></div>
         <div class="nc-txt">
-          <span class="nc-title">Lo que te deseo</span>
-          <span class="nc-desc">Sin rodeos, sin adornos</span>
+          <span class="nc-title">Para ti</span>
+          <span class="nc-desc">Algo que mereces ver hoy</span>
         </div>
         <span class="nc-arr">→</span>
       </button>
@@ -244,28 +244,34 @@
 </div>
 
 <script>
-/* ── CONTENT ── */
+/* ── CONTENIDO ── */
 const SECS = {
-  'deseos': {
-    ey:'✦ Con todo mi cariño ✦', h:'Lo que te', em:'deseo', sub:'De alguien que te conoce de verdad',
+  'no-dije': {
+    ey:'✦ Para Alison, con el corazón ✦', 
+    h:'Lo que nunca', 
+    em:'te dije', 
+    sub:'Palabras que esperaron su momento',
     body:`
-      <div class="wlist">
-        <div class="wi-item"><div class="wi-acc"></div><div class="wi-body"><span class="wi-num">— 01</span><div class="wi-title">Que este año sea tuyo</div><p class="wi-text">Recuerda que el la gente te quiere ver bien pero no mejor que ellos.</p></div></div>
-        <div class="wi-item"><div class="wi-acc"></div><div class="wi-body"><span class="wi-num">— 02</span><div class="wi-title">Que no te conformes con poco</div><p class="wi-text">Eres de las que pueden pedir más. No de cosas materiales — de vida, de profundidad, de vínculos que valgan algo. No te achiques.</p></div></div>
-        <div class="wi-item"><div class="wi-acc"></div><div class="wi-body"><span class="wi-num">— 03</span><div class="wi-title">Que te traten como mereces</div><p class="wi-text">Ojalá siempre tengas cerca a personas que te elijan con claridad, sin medias tintas. Es lo mínimo que alguien como vos debería tener.</p></div></div>
-        <div class="wi-item"><div class="wi-acc"></div><div class="wi-body"><span class="wi-num">— 04</span><div class="wi-title">Que seas feliz de verdad</div><p class="wi-text">No la felicidad que se pone en una historia. La otra. La que se queda cuando apagás el teléfono y estás sola con vos misma.</p></div></div>
-        <div class="wi-item"><div class="wi-acc"></div><div class="wi-body"><span class="wi-num">— 05</span><div class="wi-title">Que nos veamos pronto</div><p class="wi-text">Pero si algún día necesitás a alguien que te escuche sin juzgarte y te desee bien de verdad, sabés dónde estoy.</p></div></div>
+      <div class="hero-box">
+        <div class="hdiv"></div>
+        <p class="hp">Hay dos momentos que no se me van.</p>
+        <p class="hp">El primero es cuando nos conocimos. No esperaba nada esa noche, y pasó algo que no supe explicar en el momento. Simplemente fue diferente. Y lo supe.</p>
+        <p class="hp">El segundo es cuando me dijiste que venías a Cochabamba <em>por mí</em>. No por la ciudad, no por otra cosa — por mí. Eso no se dice sin que algo real haya detrás. Y aunque nunca lo hablamos como debíamos, yo lo guardé. Siempre lo voy a guardar.</p>
+        <p class="hp">No te escribo esto para incomodarte ni para revivir algo. Te lo escribo porque es tu cumpleaños y sentí que era el momento de decir lo que nunca dije — sin rodeos, sin esperar nada.</p>
+        <p class="hp">Y como sé que Dios es parte de tu vida igual que de la mía, te dejo esto:</p>
+        <p class="hp"><strong><em>"Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones. Por tanto no temeremos."</em></strong><br/>— Salmo 46</p>
+        <p class="hp">Que eso sea cierto en tu vida todos los días. Que no le temas a nada de lo que viene. Que Dios sea en tu vida, y si Él es — nada faltará.</p>
       </div>
-      <div class="div-g">✦</div>
       <div class="closing">
         <span class="cl-script">Feliz Cumpleaños, Alison</span>
-        <p class="cl-text">Con todo el cariño que no siempre supe decir a tiempo.<br/>— Tú sabes quién.</p>
+        <p class="cl-text">No lo dije antes porque no era el momento.<br/>Hoy sí lo es.</p>
       </div>`
   }
 };
 
 function open_sec(key){
-  const d = SECS[key]; if(!d) return;
+  const d = SECS[key]; 
+  if(!d) return;
   document.getElementById('cm').innerHTML =`
     <div class="sh">
       <span class="sh-ey">${d.ey}</span>
@@ -276,17 +282,17 @@ function open_sec(key){
     ${d.body}`;
   document.getElementById('sw').classList.remove('on');
   document.getElementById('sc').classList.add('on');
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0, behavior:'smooth'});
   launch_confetti();
 }
 
 function go_back(){
   document.getElementById('sc').classList.remove('on');
   document.getElementById('sw').classList.add('on');
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
-/* ── FLORES ── */
+/* ── FLORES (con 3 flores adicionales, mismo diseño, nuevos colores sutiles) ── */
 let floresRaf = null;
 let floresStarted = false;
 
@@ -316,15 +322,16 @@ function init_flores(){
   resize();
   window.addEventListener('resize', resize);
 
-  /* Paleta rosa + negro - Colores armoniosos y variados para combinar */
+  /* Paleta original + 3 nuevos colores para las flores adicionales (misma gama) */
   const ROSE_COLORS = [
     '#e8507a','#ff6b95','#ff85a8','#d63060',
     '#8c1f3e','#c9933a','#f5d98a','#f5ede4',
     '#ff4d80','#ff99bb','#ffb3cc','#cc2255',
-    '#e8b84a','#e67e5c','#c0576b','#e889a1'
+    '#ff7b6e',  // nuevo coral
+    '#e599c2',  // nuevo rosa lavanda
+    '#ffb347'   // nuevo melocotón
   ];
 
-  /* Función para dibujar un pétalo */
   function drawPetal(ctx, x, y, size, angle, color, alpha){
     ctx.save();
     ctx.globalAlpha = alpha;
@@ -338,7 +345,6 @@ function init_flores(){
     ctx.shadowColor = color;
     ctx.shadowBlur = 12;
     ctx.fill();
-    /* Brillo interior */
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.bezierCurveTo(size*0.3, -size*0.3, size*0.7, -size*0.25, size*0.8, 0);
@@ -349,25 +355,21 @@ function init_flores(){
     ctx.restore();
   }
 
-  /* Función para dibujar una flor completa */
   function drawFlower(ctx, x, y, size, rotation, colors, alpha, frame){
     const petalCount = 6 + Math.floor(size / 18);
     const angleStep = (Math.PI * 2) / petalCount;
     const wobble = Math.sin(frame * 0.02) * 0.05;
 
-    /* Pétalos externos */
     for(let i = 0; i < petalCount; i++){
       const angle = rotation + i * angleStep + wobble;
       drawPetal(ctx, x, y, size * 0.85, angle, colors[i % colors.length], alpha * 0.9);
     }
-    /* Pétalos internos */
     const innerCount = Math.floor(petalCount * 0.7);
     const innerAngleStep = (Math.PI * 2) / innerCount;
     for(let i = 0; i < innerCount; i++){
       const angle = rotation + i * innerAngleStep + angleStep/2 - wobble;
       drawPetal(ctx, x, y, size * 0.55, angle, colors[(i+2) % colors.length], alpha * 0.85);
     }
-    /* Centro */
     ctx.save();
     ctx.globalAlpha = alpha;
     const grad = ctx.createRadialGradient(x, y, 0, x, y, size * 0.22);
@@ -381,7 +383,6 @@ function init_flores(){
     ctx.shadowBlur = 10;
     ctx.fill();
     ctx.restore();
-    /* Puntitos del centro */
     ctx.save();
     ctx.globalAlpha = alpha * 0.7;
     for(let i = 0; i < 7; i++){
@@ -395,11 +396,11 @@ function init_flores(){
     ctx.restore();
   }
 
-  /* Crear flores - Aumenté la cantidad de flores en 4 unidades para un aspecto más completo */
+  /* Crear flores: AUMENTÉ la cantidad para incluir 3 flores más */
   function createFlowers(){
     flowers = [];
-    /* Aumento la cantidad base de flores: antes aprox 8-12, ahora 12-16 (4 flores más aproximadamente) */
-    const count = Math.min(22, Math.floor((W * H) / 28000) + 10);
+    // antes era Math.min(18, floor(...)+6) -> ahora +9 para ~21 flores
+    const count = Math.min(24, Math.floor((W * H) / 35000) + 9);
     for(let i = 0; i < count; i++){
       const size = 38 + Math.random() * 65;
       flowers.push({
@@ -424,7 +425,6 @@ function init_flores(){
   }
   createFlowers();
 
-  /* Pétalos flotantes */
   function spawnPetal(){
     petals.push({
       x: Math.random() * W,
@@ -446,7 +446,6 @@ function init_flores(){
     floresRaf = requestAnimationFrame(loop);
     ctx.clearRect(0, 0, W, H);
 
-    /* Fondo con gradiente sutil */
     const bg = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)*0.7);
     bg.addColorStop(0, 'rgba(20,8,12,1)');
     bg.addColorStop(0.5, 'rgba(12,5,8,1)');
@@ -454,7 +453,6 @@ function init_flores(){
     ctx.fillStyle = bg;
     ctx.fillRect(0, 0, W, H);
 
-    /* Halos de luz suaves */
     for(let i = 0; i < 4; i++){
       const hx = W * (0.2 + i * 0.22);
       const hy = H * (0.3 + Math.sin(frame*0.008 + i) * 0.15);
@@ -465,10 +463,8 @@ function init_flores(){
       ctx.fillRect(0, 0, W, H);
     }
 
-    /* Spawnar pétalos */
     if(frame % 8 === 0 && petals.length < 60) spawnPetal();
 
-    /* Dibujar pétalos flotantes */
     petals.forEach((p, idx) => {
       p.x += p.vx + Math.sin(frame * 0.02 + idx) * 0.3;
       p.y += p.vy;
@@ -481,7 +477,6 @@ function init_flores(){
       drawPetal(ctx, p.x, p.y, p.size, p.angle, p.color, p.alpha * p.life);
     });
 
-    /* Dibujar flores */
     flowers.forEach(f => {
       f.born++;
       if(f.born < f.delay) return;
@@ -543,7 +538,7 @@ function tick(){
   else ctx2d.clearRect(0,0,cvs.width,cvs.height);
 }
 
-/* ── PARTICLES ── */
+/* ── PARTÍCULAS DE FONDO ── */
 const SYM=['✦','✧','◆','◇','·','•','♡','✿','❋','✱','⋆','★'];
 const PCOLS=['rgba(232,80,122,.55)','rgba(255,107,149,.45)','rgba(201,147,58,.50)','rgba(232,184,74,.40)','rgba(245,217,138,.35)','rgba(245,237,228,.28)'];
 const ptx=document.getElementById('ptx');
